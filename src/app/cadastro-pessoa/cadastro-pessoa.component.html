@@ -1,0 +1,13 @@
+<h1>
+  Formulário de cadastro
+</h1>
+
+  <label>Nome:{{teste}}</label>
+  <input [(ngModel)]="teste" type="text"  placeholder="digite seu nome" />
+  <label>email:</label>
+  <input type="email" placeholder=" digite o email" />
+  <label>Senha:</label>
+  <input type="number" placeholder="digite a senha" />
+
+  <button (click)="cadastrar()">Cadastrar</button>
+  <button (click)="cancelar()">Cancelar</button>

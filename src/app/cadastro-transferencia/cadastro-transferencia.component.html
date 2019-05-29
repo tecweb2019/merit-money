@@ -1,0 +1,17 @@
+<p>
+  cadastro-transferencia works!
+</p>
+<form [formGroup]="formTransf" (ngSubmit)="onSubmit()">
+<label>Destinatario:
+<select formControlName="recebedor">
+  <option *ngFor="let pessoa of pessoas" value="{{pessoa._id}}" > {{ pessoa.nome }}</option>
+</select>
+</label>
+<label>Valor:
+<input type="number" formControlName="valor" />
+</label>
+<label>Motivo da transferencia
+<textarea formControlName="motivo"></textarea>
+</label>
+  <input type="submit" value="Tranferir"  />
+</form>
