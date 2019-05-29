@@ -19,8 +19,10 @@ import { PegeNotFoundComponent } from './pege-not-found/pege-not-found.component
 
 const appRoutes: Routes  = [
     { path:"perfilpessoa", component: DetaisPessoaComponent },
-    { path:"Cadastropessoa", component: CadastroPessoaComponent },
-    { path:"CadastroTranferencia", component: CadastroTransferenciaComponent },
+    { path:"cadastropessoa", component: CadastroPessoaComponent },
+    { path:"cadastrotransferencia", component: CadastroTransferenciaComponent },
+    { path:"transferencias", component: TransferenciasComponent },
+
     { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
     { path: '**', component: PegeNotFoundComponent }
 
