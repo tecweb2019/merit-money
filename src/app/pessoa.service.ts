@@ -11,7 +11,7 @@ export class PessoaService {
   static httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-  static Url = "http://localhost:3001/api/v1/pessoas";
+  static Url = "https://api-meriti-money.azurewebsites.net/api/v1/pessoas";
   constructor( private http : HttpClient,) { }
 
 

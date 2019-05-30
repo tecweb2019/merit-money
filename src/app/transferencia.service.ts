@@ -10,7 +10,7 @@ export class TransferenciaService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-  static url = "http://localhost:3001/api/v1/transferencias";
+  static url = "https://api-meriti-money.azurewebsites.net/api/v1/transferencias";
 
   constructor( private http : HttpClient) { }
 
