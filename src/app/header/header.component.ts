@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  appTitle: string = "Merit Money";
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  teste(){
+    alert("opa");
+  }
 }

@@ -8,7 +8,7 @@ import { TransferenciasComponent } from './transferencias/transferencias.compone
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TransferenciaService } from './transferencia.service';
-import { DetaisPessoaComponent } from './detais-pessoa/detais-pessoa.component';
+import { DetailsPessoaComponent } from './details-pessoa/details-pessoa.component';
 import {PessoaService} from "./pessoa.service";
 import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
 import {FormsModule} from "@angular/forms";
@@ -18,7 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PegeNotFoundComponent } from './pege-not-found/pege-not-found.component';
 
 const appRoutes: Routes  = [
-    { path:"perfilpessoa", component: DetaisPessoaComponent },
+    { path:"perfilpessoa", component: DetailsPessoaComponent },
     { path:"cadastropessoa", component: CadastroPessoaComponent },
     { path:"cadastrotransferencia", component: CadastroTransferenciaComponent },
     { path:"transferencias", component: TransferenciasComponent },
@@ -35,7 +35,7 @@ const appRoutes: Routes  = [
     TransferenciasComponent,
     HeaderComponent,
     FooterComponent,
-    DetaisPessoaComponent,
+    DetailsPessoaComponent,
     CadastroPessoaComponent,
     CadastroTransferenciaComponent,
     PegeNotFoundComponent
