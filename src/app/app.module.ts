@@ -15,7 +15,7 @@ import {FormsModule} from "@angular/forms";
 import { TransferirMoedasComponent } from "./transferir-moedas/TransferirMoedasComponent";
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { PegeNotFoundComponent } from './pege-not-found/pege-not-found.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes  = [
     { path:"perfilpessoa", component: DashboardComponent },
@@ -24,7 +24,7 @@ const appRoutes: Routes  = [
     { path:"transferencias", component: TransferenciasComponent },
 
     { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
-    { path: '**', component: PegeNotFoundComponent }
+    { path: '**', component: PageNotFoundComponent }
 
 ];
 
@@ -38,7 +38,7 @@ const appRoutes: Routes  = [
     DashboardComponent,
     CadastroPessoaComponent,
     TransferirMoedasComponent,
-    PegeNotFoundComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
