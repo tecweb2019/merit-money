@@ -1,0 +1,14 @@
+<table class="table">
+<tr>
+  <th>doador</th>
+  <th>recebedor</th>
+  <th>valor</th>
+  <th>Motivo</th>
+</tr>
+<tr *ngFor="let transf of transferencias">
+  <td>{{transf.doador.nome}}</td>
+  <td>{{transf.recebedor.nome}}</td>
+  <td>{{transf.qtdcoinstransf}}</td>
+  <td>{{transf.motivo}}</td>
+</tr>
+</table>
