@@ -16,14 +16,20 @@ import { TransferirMoedasComponent } from "./transferir-moedas/TransferirMoedasC
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MinhasTransferenciasComponent } from './minhas-transferencias/minhas-transferencias.component';
+import { MinhasTransferenciasService } from './minhas-transferencias.service';
+
+
+
 
 const appRoutes: Routes  = [
-    { path:"perfilpessoa", component: DashboardComponent },
-    { path:"cadastropessoa", component: CadastroPessoaComponent },
+    { path:"dashboard", component: DashboardComponent },
+    { path:"cadastr-opessoa", component: CadastroPessoaComponent },
     { path:"transferir-moedas", component: TransferirMoedasComponent },
     { path:"transferencias", component: TransferenciasComponent },
+    { path:"minhas-transferencias", component: MinhasTransferenciasComponent },
 
-    { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
+    { path: '',   redirectTo: '/dashboard', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 
 ];
@@ -36,6 +42,7 @@ const appRoutes: Routes  = [
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
+    MinhasTransferenciasComponent,
     CadastroPessoaComponent,
     TransferirMoedasComponent,
     PageNotFoundComponent
@@ -53,7 +60,8 @@ const appRoutes: Routes  = [
   ],
   providers: [
       TransferenciaService,
-      PessoaService
+      PessoaService,
+      MinhasTransferenciasService
   ],
   bootstrap: [AppComponent]
 })
