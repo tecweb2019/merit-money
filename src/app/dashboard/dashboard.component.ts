@@ -3,11 +3,11 @@ import {Pessoa} from "../classes/Pessoa";
 import {PessoaService} from "../pessoa.service";
 
 @Component({
-  selector: 'app-details-pessoa',
-  templateUrl: './details-pessoa.component.html',
-  styleUrls: ['./details-pessoa.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class DetailsPessoaComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   public pessoa: Pessoa;
   constructor( private service:PessoaService) { }
