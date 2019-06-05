@@ -8,19 +8,19 @@ import { TransferenciasComponent } from './transferencias/transferencias.compone
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TransferenciaService } from './transferencia.service';
-import { DetailsPessoaComponent } from './details-pessoa/details-pessoa.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import {PessoaService} from "./pessoa.service";
 import { CadastroPessoaComponent } from './cadastro-pessoa/cadastro-pessoa.component';
 import {FormsModule} from "@angular/forms";
-import { CadastroTransferenciaComponent } from './cadastro-transferencia/cadastro-transferencia.component';
+import { TransferirMoedasComponent } from "./transferir-moedas/TransferirMoedasComponent";
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { PegeNotFoundComponent } from './pege-not-found/pege-not-found.component';
 
 const appRoutes: Routes  = [
-    { path:"perfilpessoa", component: DetailsPessoaComponent },
+    { path:"perfilpessoa", component: DashboardComponent },
     { path:"cadastropessoa", component: CadastroPessoaComponent },
-    { path:"cadastrotransferencia", component: CadastroTransferenciaComponent },
+    { path:"transferir-moedas", component: TransferirMoedasComponent },
     { path:"transferencias", component: TransferenciasComponent },
 
     { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
@@ -35,9 +35,9 @@ const appRoutes: Routes  = [
     TransferenciasComponent,
     HeaderComponent,
     FooterComponent,
-    DetailsPessoaComponent,
+    DashboardComponent,
     CadastroPessoaComponent,
-    CadastroTransferenciaComponent,
+    TransferirMoedasComponent,
     PegeNotFoundComponent
   ],
   imports: [

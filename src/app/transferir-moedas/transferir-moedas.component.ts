@@ -7,11 +7,11 @@ import {TransferenciaService} from "../transferencia.service";
 import {FormGroup, FormControl} from "@angular/forms";
 
 @Component({
-  selector: 'app-cadastro-transferencia',
-  templateUrl: './cadastro-transferencia.component.html',
-  styleUrls: ['./cadastro-transferencia.component.css']
+  selector: 'app-transferencia',
+  templateUrl: './transferencia.component.html',
+  styleUrls: ['./transferencia.component.css']
 })
-export class CadastroTransferenciaComponent implements OnInit {
+export class TransferirMoedasComponent implements OnInit {
 
   private pessoas: Pessoa[];
   private formTransf =  new FormGroup({
