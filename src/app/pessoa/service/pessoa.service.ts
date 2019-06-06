@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Pessoa} from "./classes/Pessoa";
 
 
 @Injectable({
@@ -11,7 +10,7 @@ export class PessoaService {
   static httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-  static Url = "https://api-meriti-money.azurewebsites.net/api/v1/pessoas";
+  static Url = "http://localhost:3001/api/v1/pessoas";
   constructor( private http : HttpClient,) { }
 
 

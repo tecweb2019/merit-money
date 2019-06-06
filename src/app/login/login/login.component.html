@@ -1,0 +1,24 @@
+
+<mat-card class="conteiner-login">
+    <mat-card-title>Faça seu Login </mat-card-title>
+    <mat-card-content>
+    <form [formGroup]="formLogin" (submit)="OnSubmit()" >
+        <mat-form-field appearance="outline" hintLabel="exemplo@gmail.com" >
+            <input matInput placeholder="Digite seu usuário ou e-mail" formControlName="usuario">
+            <mat-icon  matSuffix >person</mat-icon >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <input matInput type="password" placeholder="Senha" formControlName="senha">
+            <mat-icon  matSuffix >lock</mat-icon >
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Login
+            <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+        </button>
+        <button mat-raised-button color="warn">Cancelar</button>
+
+    </form>
+    </mat-card-content>
+
+</mat-card>

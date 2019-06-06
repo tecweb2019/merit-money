@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Pessoa} from "../classes/Pessoa";
+import {Pessoa} from "../pessoa/class/Pessoa";
 import {Transferencia} from "../classes/Tranferencia";
-import {PessoaService} from "../pessoa.service";
+import {PessoaService} from "../pessoa/service/pessoa.service";
 import {TransferenciaService} from "../transferencia.service";
 
 import {FormGroup, FormControl} from "@angular/forms";

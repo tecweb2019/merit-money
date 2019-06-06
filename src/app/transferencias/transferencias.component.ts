@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Transferencia} from "../classes/Tranferencia";
 import { TransferenciaService} from "../transferencia.service";
 

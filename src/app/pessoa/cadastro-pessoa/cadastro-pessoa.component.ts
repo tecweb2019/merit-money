@@ -1,7 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import {Pessoa} from "../classes/Pessoa";
-import {PessoaService} from "../pessoa.service";
-import {splitTypescriptSuffix} from "@angular/compiler/src/aot/util";
+import {Pessoa} from "../class/Pessoa";
+import {PessoaService} from "../service/pessoa.service";
 
 @Component({
   selector: 'app-cadastro-pessoa',
