@@ -17,7 +17,9 @@ import { AppRoutingModule } from "./app-routing/app-routing.module";
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PessoaModule } from './pessoa/pessoa.module';
 import { LoginModule} from "./login/login.module";
-import { MatCardModule} from "@angular/material";
+import { MatCardModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule} from "@angular/material";
+import { LayoutModule } from '@angular/cdk/layout';
+import { TransferirMoedasComponent } from './transferir-moedas/TransferirMoedasComponent';
 
 
 @NgModule({
@@ -26,10 +28,11 @@ import { MatCardModule} from "@angular/material";
     TransferenciasComponent,
     HeaderComponent,
     FooterComponent,
+    TransferirMoedasComponent,
     DetaisPessoaComponent,
     CadastroPessoaComponent,
     MinhasTransferenciasComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,13 @@ import { MatCardModule} from "@angular/material";
       PessoaModule,
       LoginModule,
       AppRoutingModule,
-      MatCardModule
+      MatCardModule,
+      LayoutModule,
+      MatToolbarModule,
+      MatButtonModule,
+      MatSidenavModule,
+      MatIconModule,
+      MatListModule
 
 
   ],

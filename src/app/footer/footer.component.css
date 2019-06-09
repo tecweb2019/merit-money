@@ -3,4 +3,11 @@ footer {
     height: 50px;
     border-radius: 0px 0px 5px 5px;
     margin-top: 10px;
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+
+footer > p {
+    text-align: center;
 }
