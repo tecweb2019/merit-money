@@ -9,6 +9,7 @@ import { FormGroup, FormControl } from "@angular/forms";
   templateUrl: './transferir-moedas.component.html',
   styleUrls: ['./transferir-moedas.component.css']
 })
+
 export class TransferirMoedasComponent implements OnInit {
   private pessoas: Pessoa[];
   private formTransf = new FormGroup({

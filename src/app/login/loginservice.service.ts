@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import { LocalStorageService, SessionStorageService, LocalStorage, SessionStorage } from 'angular-web-storage';
 import {Observable} from "rxjs";
+import { PessoaService} from "../pessoa/service/pessoa.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class LoginserviceService {
     };
     static Url = "http://localhost:3001/api/v1/login/token";
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private PessoaService: PessoaService) {
     }
 
     logar(email,senha ): Observable<any>{
@@ -25,4 +25,9 @@ export class LoginserviceService {
            LoginserviceService.httpOptions);
 
     }
+
+    pegarusuarioLogado(): Observable<any>{
+        return this.PessoaService.pegarUsuarioLogado();
+    }
+
 }

@@ -8,12 +8,11 @@ import { TransferirMoedasComponent } from '../transferir-moedas/TransferirMoedas
 
 const appRoutes: Routes  = [
 
-
+    { path: '',   redirectTo: 'login', pathMatch: 'full' },
     { path:"minhastransferencia", component: MinhasTransferenciasComponent },
     { path:"transferencias", component: TransferenciasComponent },
     { path:"minhas-transferencias", component: MinhasTransferenciasComponent },
     { path: "transferir-moedas", component: TransferirMoedasComponent },
-    { path: '',   redirectTo: 'login', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 
 ];

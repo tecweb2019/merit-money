@@ -19,6 +19,8 @@ import { PessoaModule } from './pessoa/pessoa.module';
 import { LoginModule} from "./login/login.module";
 import { MatCardModule} from "@angular/material";
 import { MaterialImportsModule } from "./material-imports/material-imports.module";
+import {TransferirMoedasComponent } from "./transferir-moedas/TransferirMoedasComponent";
+import { AngularWebStorageModule } from 'angular-web-storage';
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { MaterialImportsModule } from "./material-imports/material-imports.modul
     DetaisPessoaComponent,
     CadastroPessoaComponent,
     MinhasTransferenciasComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+      TransferirMoedasComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { MaterialImportsModule } from "./material-imports/material-imports.modul
       LoginModule,
       AppRoutingModule,
       MatCardModule,
-      MaterialImportsModule
+      MaterialImportsModule,
+      AngularWebStorageModule,
 
 
   ],

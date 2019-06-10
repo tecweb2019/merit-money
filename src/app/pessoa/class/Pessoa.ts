@@ -4,4 +4,8 @@ export  class Pessoa {
     nome: string;
     qtdcoinstransf:number;
     qtdcoins: number;
+    login: {
+        email: string;
+        senha: string;
+    }
 }

@@ -1,8 +1,10 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { LoginserviceService } from "../loginservice.service";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LocalStorageService } from "angular-web-storage";
+
 
 
 @Component({
@@ -18,7 +20,10 @@ private formLogin = new FormGroup({
     senha: new FormControl('',[Validators.required]),
 });
 
-  constructor( private router: Router, private service:LoginserviceService, private snackBar : MatSnackBar) { }
+  constructor( private router: Router,
+               private service:LoginserviceService,
+               private snackBar : MatSnackBar,
+               private storage: LocalStorageService,) { }
 
   ngOnInit() {
   }
@@ -30,7 +35,11 @@ private formLogin = new FormGroup({
         this.service.logar(usuario, senha)
             .subscribe((data) =>{
                 if(data.status) {
-                    this.router.navigate(["cadastropessoa"]);
+                    this.service.pegarusuarioLogado().subscribe(user=>{
+                        this.storage.set("token",data.token);
+                        this.storage.set ("usuario" ,user);
+                        this.router.navigate(["cadastropessoa"]);
+                    })
                 }
             },(error) => {
                 this.snackBar.open(error.error.err.message,'Fechar')
