@@ -6,19 +6,23 @@
         <mat-form-field appearance="outline" hintLabel="exemplo@gmail.com" >
             <input matInput placeholder="Digite seu usuário ou e-mail" formControlName="usuario">
             <mat-icon  matSuffix >person</mat-icon >
+            <mat-error *ngIf="formLogin.controls.usuario.invalid"> {{getErrorMessage(formLogin.controls.usuario)}} </mat-error >
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <input matInput type="password" placeholder="Senha" formControlName="senha">
             <mat-icon  matSuffix >lock</mat-icon >
+            <mat-error *ngIf="formLogin.controls.senha.invalid">{{ getErrorMessage(formLogin.controls.senha)}}</mat-error>
         </mat-form-field>
 
         <button mat-raised-button color="primary" type="submit">Login
-            <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+            <mat-icon aria-hidden="false" aria-label="Example home icon">done</mat-icon>
         </button>
-        <button mat-raised-button color="warn">Cancelar</button>
-
+        <button mat-raised-button color="warn">Cancelar
+        <mat-icon>clear</mat-icon>
+        </button>
     </form>
     </mat-card-content>
 
 </mat-card>
+<h1> {{erros}} </h1>

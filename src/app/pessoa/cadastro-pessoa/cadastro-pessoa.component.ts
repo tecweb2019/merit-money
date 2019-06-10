@@ -1,6 +1,8 @@
-import { Component, OnInit} from '@angular/core';
-import {Pessoa} from "../class/Pessoa";
-import {PessoaService} from "../service/pessoa.service";
+import { Component, OnInit } from '@angular/core';
+import { Pessoa} from "../class/Pessoa";
+import { PessoaService } from "../service/pessoa.service";
+import { formCadastroPessoa } from '../Forms/formCadatroPessoa';
+import { MaterialImportsModule} from "../../material-imports/material-imports.module";
 
 @Component({
   selector: 'app-cadastro-pessoa',
@@ -9,9 +11,12 @@ import {PessoaService} from "../service/pessoa.service";
 })
 export class CadastroPessoaComponent implements OnInit {
 
-  private teste;
+  private formpessoa =  formCadastroPessoa;
   public pessoa : Pessoa;
-  constructor(private service:PessoaService) { }
+  constructor(private service:PessoaService) {
+
+
+  }
 
   ngOnInit() {
   }

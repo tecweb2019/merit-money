@@ -1,13 +1,33 @@
-<h1>
-  Formulário de cadastro
-</h1>
 
-  <label>Nome:{{teste}}</label>
-  <input [(ngModel)]="teste" type="text"  placeholder="digite seu nome" />
-  <label>email:</label>
-  <input type="email" placeholder=" digite o email" />
-  <label>Senha:</label>
-  <input type="number" placeholder="digite a senha" />
+<mat-card class="containerformpessoa">
+  <mat-card-title>
+    Faça o seu Cadastro
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="formpessoa">
+      <mat-form-field appearance="outline">
+        <input matInput type="text" placeholder="Digite seu nome" formControlName="nome"/>
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput type="email" placeholder="Digite o email" formControlName="email"/>
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput type="password" placeholder="Digite a senha" formControlName="senha"/>
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput type="password" placeholder="Confirme sua senha" formControlName="confirmaSenha"/>
+        <mat-icon matSuffix>lock</mat-icon>
+      </mat-form-field>
 
-  <button (click)="cadastrar()">Cadastrar</button>
-  <button (click)="cancelar()">Cancelar</button>
+      <button mat-raised-button (click)="cadastrar()" color="primary">Cadastrar
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-raised-button (click)="cancelar()" color="warn">Cancelar
+        <mat-icon>clear</mat-icon>
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

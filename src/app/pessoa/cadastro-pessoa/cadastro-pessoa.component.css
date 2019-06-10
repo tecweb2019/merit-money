@@ -1,0 +1,15 @@
+.containerformpessoa{
+
+    width: 50%;
+    margin: auto;
+}
+
+.containerformpessoa mat-card-content form mat-form-field{
+
+    width: 100%;
+}
+
+.containerformpessoa mat-card-content form button{
+
+    margin: 1%;
+}

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {Observable} from "rxjs";
+import { HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import { Observable} from "rxjs";
 
 
 @Injectable({
@@ -8,7 +8,10 @@ import {Observable} from "rxjs";
 })
 export class PessoaService {
   static httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            "Authorization": "JWT "+""
+        })
     };
   static Url = "http://localhost:3001/api/v1/pessoas";
   constructor( private http : HttpClient,) { }
