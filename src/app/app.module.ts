@@ -18,8 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PessoaModule } from './pessoa/pessoa.module';
 import { LoginModule} from "./login/login.module";
 import { MatCardModule} from "@angular/material";
-import { MaterialImportsModule } from "./material-imports/material-imports.module";
-import { AngularWebStorageModule } from 'angular-web-storage';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +29,7 @@ import { AngularWebStorageModule } from 'angular-web-storage';
     DetaisPessoaComponent,
     CadastroPessoaComponent,
     MinhasTransferenciasComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +39,7 @@ import { AngularWebStorageModule } from 'angular-web-storage';
       PessoaModule,
       LoginModule,
       AppRoutingModule,
-      MatCardModule,
-      MaterialImportsModule,
-      AngularWebStorageModule
+      MatCardModule
 
 
   ],
