@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule, MatFormFieldModule, MatSelectModule, MatSnackBarModule } from "@angular/material";
+import { MatCardModule, MatFormFieldModule, MatSelectModule, MatSnackBarModule,MatListModule } from "@angular/material";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
 import { MatInputModule } from "@angular/material/input";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
-
+import { MatToolbarModule} from "@angular/material";
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [],
@@ -23,7 +24,10 @@ import { MatIconModule } from "@angular/material/icon";
       FormsModule,
       ReactiveFormsModule,
       RouterModule,
-      MatSnackBarModule
+      MatSnackBarModule,
+      MatToolbarModule,
+      MatSidenavModule,
+      MatListModule
   ],
     exports: [
         CommonModule,
@@ -37,7 +41,11 @@ import { MatIconModule } from "@angular/material/icon";
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatListModule
+
     ]
 })
 export class MaterialImportsModule { }

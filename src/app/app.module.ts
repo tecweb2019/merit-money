@@ -18,6 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PessoaModule } from './pessoa/pessoa.module';
 import { LoginModule} from "./login/login.module";
 import { MatCardModule} from "@angular/material";
+import { MaterialImportsModule } from "./material-imports/material-imports.module";
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { MatCardModule} from "@angular/material";
       PessoaModule,
       LoginModule,
       AppRoutingModule,
-      MatCardModule
+      MatCardModule,
+      MaterialImportsModule
 
 
   ],

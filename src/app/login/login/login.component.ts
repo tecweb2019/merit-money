@@ -2,7 +2,7 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { LoginserviceService } from "../loginservice.service";
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
