@@ -19,8 +19,9 @@ import { PessoaModule } from './pessoa/pessoa.module';
 import { LoginModule} from "./login/login.module";
 import { MatCardModule} from "@angular/material";
 import { MaterialImportsModule } from "./material-imports/material-imports.module";
-import {TransferirMoedasComponent } from "./transferir-moedas/TransferirMoedasComponent";
+import { TransferirMoedasComponent } from "./transferir-moedas/transferir-moedas.component";
 import { AngularWebStorageModule } from 'angular-web-storage';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
 
 @NgModule({
@@ -51,7 +52,11 @@ import { AngularWebStorageModule } from 'angular-web-storage';
   ],
   providers: [
       TransferenciaService,
-      PessoaService
+      PessoaService,
+      {
+          provide: STEPPER_GLOBAL_OPTIONS,
+          useValue: { displayDefaultIndicatorType: false }
+      }
   ],
   bootstrap: [AppComponent]
 })

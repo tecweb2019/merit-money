@@ -1,51 +1,66 @@
-<mat-vertical-stepper>
-    <mat-step [stepControl]="primeiroForm">
-        <form [formGroup]="primeiroForm">
-            <ng-template matStepLabel> Selecione para quem vai a tranferência</ng-template>
-            <mat-form-field appearance="outline">
-                <mat-label>Pessoa que vai receber</mat-label>
-                <mat-select formControlName="recebedor">
-                    <mat-option></mat-option>
-                </mat-select>
-            </mat-form-field>
-        </form>
-        <div>
-            <button mat-button matStepperPrevious>Anterior</button>
-            <button mat-button matStepperNext>Proximo</button>
-        </div>
-    </mat-step>
-    <mat-step [stepControl]="segundoForm">
-        <form [formGroup]="segundoForm">
-            <ng-template matStepLabel> Digite o valor da tranferência</ng-template>
-            <mat-form-field appearance="outline">
-                <input matInput type="number">
-            </mat-form-field>
-        </form>
-        <div>
-            <button mat-button matStepperPrevious>Anterior</button>
-            <button mat-button matStepperNext>Proximo</button>
-        </div>
-    </mat-step>
-    <mat-step [stepControl]="terceiroForm">
-        <form [formGroup]="terceiroForm">
-            <ng-template matStepLabel > Digite o Motivo da tranferência</ng-template>
-           <mat-form-field appearance="outline">
-               <textarea matInput></textarea>
-           </mat-form-field>
-        </form>
-        <div>
-            <button mat-button matStepperPrevious>Anterior</button>
-            <button mat-button matStepperNext>Proximo</button>
-        </div>
-    </mat-step>
-    <mat-step >
+<mat-card class="container-transferir">
+    <mat-vertical-stepper linear>
+        <mat-step [stepControl]="primeiroForm" state="pessoa">
+            <form [formGroup]="primeiroForm">
+                <ng-template matStepLabel> Selecione para quem vai a tranferência</ng-template>
+                <mat-form-field appearance="outline" class="entrada">
+                    <mat-label>Pessoa que vai receber</mat-label>
+                    <mat-select formControlName="recebedor">
+                        <mat-option [value]=""></mat-option>
+                        <mat-option *ngFor="let pessoa of pessoas" value="pessoa.nome">{{ pessoa.nome }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious>Anterior</button>
+                    <button mat-button matStepperNext>Proximo</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="segundoForm" state="valor">
+            <form [formGroup]="segundoForm">
+                <ng-template matStepLabel> Digite o valor da tranferência</ng-template>
+                <mat-form-field appearance="outline" class="entrada">
+                    <input matInput type="number" formControlName="valor">
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious>Anterior</button>
+                    <button mat-button matStepperNext>Proximo</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="terceiroForm" state="motivo">
+            <form [formGroup]="terceiroForm">
+                <ng-template matStepLabel> Digite o Motivo da tranferência</ng-template>
+                <mat-form-field appearance="outline" class="entrada">
+                    <textarea matInput formControlName="motivo"></textarea>
+                </mat-form-field >
+                <div>
+                    <button mat-button matStepperPrevious>Anterior</button>
+                    <button mat-button matStepperNext>Proximo</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step state="checar">
             <ng-template matStepLabel> Confirme os dados e finalise a transferência</ng-template>
-        <p>Recebedor:</p>
-        <p>Valor: R$</p>
-        <p>Motivo: </p>
-        <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Confirmar</button>
-        </div>
-    </mat-step>
-</mat-vertical-stepper>
+            <p>Recebedor:{{ primeiroForm.controls.recebedor.teste}}</p>
+            <p>Valor: R$</p>
+            <p>Motivo: </p>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Confirmar</button>
+            </div>
+        </mat-step>
+        <ng-template matStepperIcon="pessoa">
+            <mat-icon>face</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="valor">
+            <mat-icon>local_atm</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="motivo">
+            <mat-icon>message</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="checar">
+            <mat-icon>done</mat-icon>
+        </ng-template>
+    </mat-vertical-stepper>
+</mat-card>

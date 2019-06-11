@@ -4,38 +4,44 @@ import {Transferencia} from "../classes/Tranferencia";
 import {PessoaService} from "../pessoa/service/pessoa.service";
 import {TransferenciaService} from "../transferencia.service";
 
-import {FormGroup, FormControl} from "@angular/forms";
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-transferencia',
-  templateUrl: './transferencia.component.html',
-  styleUrls: ['./transferencia.component.css']
+  selector: 'app-transferir-moedas',
+  templateUrl: './transferir-moedas.component.html',
+  styleUrls: ['./transferir-moedas.component.css']
 })
 export class TransferirMoedasComponent implements OnInit {
 
   private pessoas: Pessoa[];
-  private formTransf =  new FormGroup({
-      recebedor : new FormControl(''),
-      motivo : new FormControl(''),
-      valor : new FormControl(''),
-  });
-  private transferencia;
+  private primeiroForm :FormGroup;
+  private segundoForm:FormGroup;
+  private terceiroForm: FormGroup;
+  private transferencia : Transferencia;
 
 
-  constructor(private servicePessoa:PessoaService, private servicetrasnferencia: TransferenciaService) { }
+  constructor(private servicePessoa:PessoaService,
+              private servicetrasnferencia: TransferenciaService,
+              private formBuilder:FormBuilder) {
+
+
+  }
 
   ngOnInit() {
+      this.primeiroForm = this.formBuilder.group({
+          recebedor: ['', Validators.required]
+      });
+      this.segundoForm = this.formBuilder.group({
+          valor: ['', Validators.required]
+      });
+      this.terceiroForm = this.formBuilder.group({
+          motivo: ['', Validators.required]
+      });
   this.getPessoas();
   }
 
   onSubmit(){
-    this.transferencia  = new Transferencia();
-    this.transferencia.doador = "5ce831a9846e9f173b62507c";
-    this.transferencia.qtdcoinstransf = this.formTransf.value.valor;
-    this.transferencia.motivo = this.formTransf.value.motivo;
-    this.transferencia.recebedor = this.formTransf.value.recebedor;
-    this.cadastrar();
-    alert(this.transferencia.recebedor);
+
   }
   getPessoas():void {
       this.servicePessoa.getAll().subscribe(dados=>{

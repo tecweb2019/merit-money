@@ -4,7 +4,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { TransferenciasComponent } from "../transferencias/transferencias.component";
 import { PageNotFoundComponent } from "../page-not-found/page-not-found.component";
 import { MinhasTransferenciasComponent } from "../minhas-transferencias/minhas-transferencias.component";
-import { TransferirMoedasComponent } from '../transferir-moedas/TransferirMoedasComponent';
+import { TransferirMoedasComponent } from '../transferir-moedas/transferir-moedas.component';
 
 const appRoutes: Routes  = [
 

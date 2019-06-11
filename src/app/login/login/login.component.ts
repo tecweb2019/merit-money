@@ -3,7 +3,7 @@ import {FormGroup, FormControl, Validators} from "@angular/forms";
 import { Router } from "@angular/router";
 import { LoginserviceService } from "../loginservice.service";
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { LocalStorageService } from "angular-web-storage";
+import { SessionStorageService } from "angular-web-storage";
 
 
 
@@ -23,27 +23,29 @@ private formLogin = new FormGroup({
   constructor( private router: Router,
                private service:LoginserviceService,
                private snackBar : MatSnackBar,
-               private storage: LocalStorageService,) { }
+               private storage: SessionStorageService,) { }
 
   ngOnInit() {
+      alert("execultei o oninit");
   }
 
   OnSubmit(){
     if(this.formLogin.valid) {
         let usuario = this.formLogin.value.usuario;
         let senha = this.formLogin.value.senha;
-        this.service.logar(usuario, senha)
+        this.service.logar(usuario,senha)
             .subscribe((data) =>{
-                if(data.status) {
+                if(data) {
+                    this.storage.set("token",data.token);
+                    console.log(this.storage.get("token"));
                     this.service.pegarusuarioLogado().subscribe(user=>{
-                        this.storage.set("token",data.token);
                         this.storage.set ("usuario" ,user);
-                        this.router.navigate(["cadastropessoa"]);
+                        this.router.navigate(["transferir-moedas"]);
                     })
                 }
             },(error) => {
-                this.snackBar.open(error.error.err.message,'Fechar')
-            })
+            this.snackBar.open(error.error.err.message,'Fechar')
+        })
     }
   }
 

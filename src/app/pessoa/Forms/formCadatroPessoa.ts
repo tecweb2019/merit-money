@@ -1,5 +1,5 @@
 import { FormControl, FormGroup, Validators, ValidationErrors,ValidatorFn } from "@angular/forms";
-import {validate} from "codelyzer/walkerFactory/walkerFn";
+
 
 /*export const confirmaSenha : ValidatorFn = (control: FormGroup): ValidationErrors | null => {
    if(!(control === null)){
@@ -10,7 +10,7 @@ import {validate} from "codelyzer/walkerFactory/walkerFn";
    }
 };*/
 export let formCadastroPessoa = new FormGroup({
-    nome: new FormControl('',[Validators.required ]),
+    nome : new FormControl('',[Validators.required ]),
     email: new FormControl('',[Validators.required , Validators.email]),
     senha: new FormControl('', [Validators.required , Validators.minLength(8)]),
     confirmaSenha: new FormControl('',[Validators.required ])
