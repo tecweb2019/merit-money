@@ -5,11 +5,12 @@ import { TransferenciasComponent } from "../transferencias/transferencias.compon
 import { PageNotFoundComponent } from "../page-not-found/page-not-found.component";
 import { MinhasTransferenciasComponent } from "../minhas-transferencias/minhas-transferencias.component";
 import { TransferirMoedasComponent } from '../transferir-moedas/TransferirMoedasComponent';
+import { DetaisPessoaComponent } from '../pessoa/detais-pessoa/detais-pessoa.component';
 
 const appRoutes: Routes  = [
 
     { path: '',   redirectTo: 'login', pathMatch: 'full' },
-    { path:"minhastransferencia", component: MinhasTransferenciasComponent },
+    { path:"dashboard", component: DetaisPessoaComponent },
     { path:"transferencias", component: TransferenciasComponent },
     { path:"minhas-transferencias", component: MinhasTransferenciasComponent },
     { path: "transferir-moedas", component: TransferirMoedasComponent },
@@ -23,7 +24,7 @@ const appRoutes: Routes  = [
     CommonModule,
       RouterModule.forRoot(
           appRoutes,
-          { enableTracing: true } // <-- debugging purposes only
+          { enableTracing: true } 
       )
   ],
     exports: [

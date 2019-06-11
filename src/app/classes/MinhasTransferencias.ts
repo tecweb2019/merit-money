@@ -1,4 +1,10 @@
 export  class MinhasTransferencias {
+    constructor(){
+        this.remetente = "Teste";
+        this.destinatario = "Destinatario";
+        this.quantidade = 10;
+        this.motivo = "Motivo";
+    }
 
     _id: string;
     remetente: any;
