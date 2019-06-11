@@ -11,16 +11,27 @@ import { MinhasTransferencias } from '../classes/MinhasTransferencias';
 })
 export class MinhasTransferenciasComponent implements OnInit {
 
-  private minhasTransferencias : MinhasTransferencias[];
+  private minhasTransferencias : MinhasTransferencias;
   constructor(private minhasTransFerenciasService: MinhasTransferenciasService) { }
 
+  
+
   ngOnInit() {
-    this.getTransferencias();
+
+    // var teste = new MinhasTransferencias;
+    // teste.destinatario = "Larissa";
+    // teste.motivo = "Teste motivo transferencia";
+    // teste.quantidade = 50;
+    // teste.remetente = "Lulu";
+
+    // this.minhasTransferencias.push(teste); 
+
+    // this.getTransferencias();
   }
 
   getTransferencias(): void{
     this.minhasTransFerenciasService.minhasTransferencias("5ce831a9846e9f173b62507c").subscribe(data =>{
-      this.minhasTransferencias = <MinhasTransferencias[]> data;
+      // this.minhasTransferencias = <MinhasTransferencias[]> data;
     });
   }
 }

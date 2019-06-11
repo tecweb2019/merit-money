@@ -1,4 +1,4 @@
-export  class MinhasTransferencias {
+export  class Recompensas {
     constructor(){
         this.remetente = "Teste";
         this.destinatario = "Destinatario";

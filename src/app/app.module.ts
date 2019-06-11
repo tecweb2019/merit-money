@@ -21,6 +21,9 @@ import { MatCardModule} from "@angular/material";
 import { MaterialImportsModule } from "./material-imports/material-imports.module";
 import { TransferirMoedasComponent } from "./transferir-moedas/transferir-moedas.component";
 import { AngularWebStorageModule } from 'angular-web-storage';
+import { RecompensasComponent } from './recompensas/recompensas.component';
+import { MinhasTransferenciasService } from './minhas-transferencias.service';
+import { RecompensasService } from './recompensas.service';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
 
@@ -52,11 +55,7 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
   ],
   providers: [
       TransferenciaService,
-      PessoaService,
-      {
-          provide: STEPPER_GLOBAL_OPTIONS,
-          useValue: { displayDefaultIndicatorType: false }
-      }
+      PessoaService
   ],
   bootstrap: [AppComponent]
 })
