@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from "../page-not-found/page-not-found.componen
 import { MinhasTransferenciasComponent } from "../minhas-transferencias/minhas-transferencias.component";
 import { TransferirMoedasComponent } from '../transferir-moedas/TransferirMoedasComponent';
 import { DetaisPessoaComponent } from '../pessoa/detais-pessoa/detais-pessoa.component';
+import { RecompensasComponent } from '../recompensas/recompensas.component';
 
 const appRoutes: Routes  = [
 
@@ -14,6 +15,7 @@ const appRoutes: Routes  = [
     { path:"transferencias", component: TransferenciasComponent },
     { path:"minhas-transferencias", component: MinhasTransferenciasComponent },
     { path: "transferir-moedas", component: TransferirMoedasComponent },
+    { path: "recompensas", component: RecompensasComponent },
     { path: '**', component: PageNotFoundComponent }
 
 ];
