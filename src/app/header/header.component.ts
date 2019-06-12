@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { SessionStorageService} from "ngx-webstorage";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
   public isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -20,7 +20,10 @@ export class HeaderComponent {
   public usuario;
 
   constructor(private breakpointObserver: BreakpointObserver, private loginservice:LoginserviceService,
-              private router:Router, private storage) {
+              private router:Router, private storage : SessionStorageService) {
+
+  }
+  ngOnInit(){
       this.pegarUsuarioStorage()
   }
 
@@ -31,6 +34,6 @@ export class HeaderComponent {
   }
 
   pegarUsuarioStorage(){
-
+    this.usuario = this.storage.retrieve("usuario").user;
   }
 }
