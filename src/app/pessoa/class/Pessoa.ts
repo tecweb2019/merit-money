@@ -2,11 +2,12 @@
 import { Login} from "./Login";
 
 export  class Pessoa {
-    _id: string;
-    nome: string;
-    qtdcoinstransf:number;
-    qtdcoins: number;
-    login: Login;
+    public id: string;
+    public nome: string;
+    public qtdcoinstransf: number;
+    public qtdcoins: number;
+    public login: Login;
+
     constructor(login :Login){
         this.login = login;
     }

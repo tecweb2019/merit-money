@@ -6,9 +6,7 @@ import { AppComponent } from './app.component';
 import { TransferenciasComponent } from './transferencias/transferencias.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { TransferenciaService } from './transferencia.service';
 import { DetaisPessoaComponent } from './pessoa/detais-pessoa/detais-pessoa.component';
-import { PessoaService} from "./pessoa/service/pessoa.service";
 import { CadastroPessoaComponent } from './pessoa/cadastro-pessoa/cadastro-pessoa.component';
 import { FormsModule} from "@angular/forms";
 import { MinhasTransferenciasComponent } from './minhas-transferencias/minhas-transferencias.component';
@@ -22,9 +20,9 @@ import { MaterialImportsModule } from "./material-imports/material-imports.modul
 import { TransferirMoedasComponent } from "./transferir-moedas/transferir-moedas.component";
 import { AngularWebStorageModule } from 'angular-web-storage';
 import { RecompensasComponent } from './recompensas/recompensas.component';
-import { MinhasTransferenciasService } from './minhas-transferencias.service';
-import { RecompensasService } from './recompensas.service';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { NgCircleProgressModule } from "ng-circle-progress";
+import {NgxWebstorageModule} from 'ngx-webstorage';
 
 
 @NgModule({
@@ -38,6 +36,8 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
     MinhasTransferenciasComponent,
     PageNotFoundComponent,
       TransferirMoedasComponent,
+      RecompensasComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -50,12 +50,23 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
       MatCardModule,
       MaterialImportsModule,
       AngularWebStorageModule,
-
-
+      NgCircleProgressModule.forRoot({
+          // set defaults here
+          radius: 100,
+          outerStrokeWidth: 16,
+          innerStrokeWidth: 8,
+          outerStrokeColor: "#78C000",
+          innerStrokeColor: "#C7E596",
+          animationDuration: 300,
+          animation :       true,
+      }),
+      NgxWebstorageModule.forRoot(),
   ],
   providers: [
-      TransferenciaService,
-      PessoaService
+      {
+          provide: STEPPER_GLOBAL_OPTIONS,
+          useValue: { displayDefaultIndicatorType: false }
+      }
   ],
   bootstrap: [AppComponent]
 })

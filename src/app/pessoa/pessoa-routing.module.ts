@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {DetaisPessoaComponent} from "./detais-pessoa/detais-pessoa.component";
-import {CadastroPessoaComponent} from "./cadastro-pessoa/cadastro-pessoa.component";
+import { DetaisPessoaComponent} from "./detais-pessoa/detais-pessoa.component";
+import { CadastroPessoaComponent} from "./cadastro-pessoa/cadastro-pessoa.component";
 
 const routes: Routes = [
-    { path:"perfilpessoa/:id", component: DetaisPessoaComponent },
+    { path:"perfilpessoa", component: DetaisPessoaComponent },
     { path:"cadastropessoa", component: CadastroPessoaComponent },
 ];
 

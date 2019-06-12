@@ -3,7 +3,7 @@ import {FormGroup, FormControl, Validators} from "@angular/forms";
 import { Router } from "@angular/router";
 import { LoginserviceService } from "../loginservice.service";
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SessionStorageService } from "angular-web-storage";
+import { SessionStorageService } from "ngx-webstorage";
 
 
 
@@ -26,25 +26,27 @@ private formLogin = new FormGroup({
                private storage: SessionStorageService,) { }
 
   ngOnInit() {
-      alert("execultei o oninit");
+
   }
 
   OnSubmit(){
-    if(this.formLogin.valid) {
+  if(this.formLogin.valid) {
         let usuario = this.formLogin.value.usuario;
         let senha = this.formLogin.value.senha;
         this.service.logar(usuario,senha)
             .subscribe((data) =>{
+                let token = data.token;
                 if(data) {
-                    this.storage.set("token",data.token);
-                    console.log(this.storage.get("token"));
+                    this.storage.store("token",token);
                     this.service.pegarusuarioLogado().subscribe(user=>{
-                        this.storage.set ("usuario" ,user);
-                        this.router.navigate(["transferir-moedas"]);
+                        this.storage.store("usuario" ,user);
+                        this.router.navigate(["perfilpessoa"]);
+                    },(error)=>{
+                        this.snackBar.open(error.message,'Fechar')
                     })
                 }
             },(error) => {
-            this.snackBar.open(error.error.err.message,'Fechar')
+            this.snackBar.open(error.error.message,'Fechar')
         })
     }
   }
@@ -53,8 +55,7 @@ private formLogin = new FormGroup({
         console.log(controls.errors);
         return controls.hasError('required') ? 'campo é necessário' :
             controls.hasError('email') ? 'Isso não é um email' :
-                controls.hasError('minlength') ? 'O campo deve conter pelo menos caracteres' :
-                'teste';
+                controls.hasError('minlength') ? 'O campo deve conter pelo menos caracteres':"";
 
     }
 }

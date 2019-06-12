@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {LoginserviceService} from "../login/loginservice.service";
 import { Router} from "@angular/router";
+import { SessionStorageService} from "ngx-webstorage";
 
 @Component({
   selector: 'app-header',
@@ -12,16 +13,24 @@ import { Router} from "@angular/router";
 })
 export class HeaderComponent {
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  public isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
+  public usuario;
 
   constructor(private breakpointObserver: BreakpointObserver, private loginservice:LoginserviceService,
-              private router:Router) {}
+              private router:Router, private storage) {
+      this.pegarUsuarioStorage()
+  }
+
 
   sair(){
     this.loginservice.loguot();
     this.router.navigate(['login']);
+  }
+
+  pegarUsuarioStorage(){
+
   }
 }

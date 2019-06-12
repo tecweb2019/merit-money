@@ -1,6 +1,37 @@
-<h2> Perfil do usuário</h2>
-
-<p> Nome:{{pessoa.nome}} </p>
-<p> Moedas para doar: </p><h1>{{pessoa.qtdcoinstransf}}</h1>
-<p> Moedas Recebidas: </p><h1>{{pessoa.qtdcoins}}</h1>
-<button routerLink="/sidekicks">Go to sidekicks</button>
+<div class="container-moedas">
+    <mat-card>
+        <mat-card-title>Merits Recebidos</mat-card-title>
+        <mat-card-content>
+            <circle-progress
+                    [percent]="(pessoa.qtdcoins)"
+                    [radius]="65"
+                    [outerStrokeWidth]="10"
+                    [innerStrokeWidth]="4"
+                    [outerStrokeColor]="'#3d2dc0'"
+                    [innerStrokeColor]="'#b1b5e5'"
+                    [animation]="true"
+                    [animationDuration]="1000"
+                    [subtitle]="'Merits'"
+                    [units] = "'M$'"
+            ></circle-progress>
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-title>Merits para Doar</mat-card-title>
+        <mat-card-content>
+            <circle-progress
+                    [percent]="(pessoa.qtdcoinstransf)"
+                    [radius]="65"
+                    [outerStrokeWidth]="10"
+                    [innerStrokeWidth]="4"
+                    [outerStrokeColor]="'#3d2dc0'"
+                    [innerStrokeColor]="'#b1b5e5'"
+                    [animation]= true
+                    [animationDuration]="1000"
+                    [subtitle]="'Merits'"
+                    [units] = "'M$'"
+                    [startFromZero] = "false"
+            ></circle-progress>
+        </mat-card-content>
+    </mat-card>
+</div>

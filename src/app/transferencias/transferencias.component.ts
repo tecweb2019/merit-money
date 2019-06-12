@@ -17,8 +17,9 @@ export class TransferenciasComponent implements OnInit {
   }
 
   getTransferencias(): void{
-    this.service.listar().subscribe(data =>{
-      this.transferencias = <Transferencia[]> data;
+    this.service.listar()
+        .subscribe(data =>{
+      this.transferencias = data;
     });
   }
 }

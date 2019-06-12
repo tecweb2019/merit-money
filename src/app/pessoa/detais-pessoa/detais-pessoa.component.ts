@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Pessoa} from "../class/Pessoa";
 import {PessoaService} from "../service/pessoa.service";
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { SessionStorageService} from "ngx-webstorage";
 
 @Component({
   selector: 'app-detais-pessoa',
@@ -15,15 +15,19 @@ export class DetaisPessoaComponent implements OnInit {
   constructor( private service:PessoaService,
                private route: ActivatedRoute,
                private router: Router,
+               private storage: SessionStorageService,
                ) { }
 
   ngOnInit() {
-    this.getPessoa("5ce831a9846e9f173b62507c");
+      debugger
+      let id = this.storage.retrieve("usuario").user._id;
+    this.getPessoa(id);
   }
 
   getPessoa(id): void{
-     this.service.getForId(id).subscribe( data =>{
-       this.pessoa =<Pessoa> data;
+     this.service.getForId(id)
+         .subscribe( data =>{
+            this.pessoa =<Pessoa> data;
      });
   }
 }

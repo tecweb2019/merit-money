@@ -10,6 +10,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule} from "@angular/material";
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatProgressSpinnerModule} from "@angular/material";
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { MatStepperModule } from '@angular/material/stepper';
       MatSidenavModule,
       MatListModule,
       MatStepperModule,
+      MatProgressSpinnerModule,
 
 
   ],
@@ -50,7 +52,8 @@ import { MatStepperModule } from '@angular/material/stepper';
         MatToolbarModule,
         MatSidenavModule,
         MatListModule,
-        MatStepperModule
+        MatStepperModule,
+        MatProgressSpinnerModule
 
     ]
 })
