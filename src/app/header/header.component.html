@@ -6,7 +6,7 @@
     <mat-nav-list>
       <a mat-list-item routerLink="perfilpessoa" (click)="drawer.toggle()">Minhas Moedas</a>
       <a mat-list-item routerLink="/transferir-moedas" (click)="drawer.toggle()">Transferir</a>
-      <a mat-list-item routerLink="/minhas-transferencias" (click)="drawer.toggle()">Minhas Transferências</a>
+      <!--<a mat-list-item routerLink="/minhas-transferencias" (click)="drawer.toggle()">Minhas Transferências</a>-->
       <a mat-list-item routerLink="/transferencias" (click)="drawer.toggle()">Transferências</a>
       <a mat-list-item routerLink="recompensas" (click)="drawer.toggle()">Recompensas</a>
       <a mat-list-item (click)="sair();drawer.toggle()">Sair</a>
@@ -22,7 +22,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Merit-<small>Money</small></span>
-      <p> Bem Vindo ! {{usuario.nome }}</p>
+
     </mat-toolbar>
     <!-- Add Content Here -->
   </mat-sidenav-content>

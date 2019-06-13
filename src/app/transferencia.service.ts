@@ -3,12 +3,13 @@ import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {SessionStorageService} from "ngx-webstorage";
 import {Transferencia} from "./classes/Tranferencia";
+import connect from "../conect-api"
 
 
 @Injectable({providedIn: "root"})
 export class TransferenciaService {
     private httpOptions;
-    static url = "http://localhost:3001/api/v1/transferencias";
+    private url = connect.host + "transferencias";
 
     constructor(private http: HttpClient, private storage: SessionStorageService) {
         let token = this.storage.retrieve('token');
@@ -22,12 +23,12 @@ export class TransferenciaService {
 
     listar(): Observable<object> {
         this.atualizaheader()
-        return this.http.get(TransferenciaService.url, this.httpOptions);
+        return this.http.get(this.url, this.httpOptions);
     }
 
     save(transferencia: Transferencia): Observable<any> {
         this.atualizaheader()
-        return this.http.post(TransferenciaService.url, transferencia, this.httpOptions)
+        return this.http.post(this.url, transferencia, this.httpOptions)
     }
 
     atualizaheader() {

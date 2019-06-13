@@ -9,7 +9,7 @@ import {TransferenciaService} from "../transferencia.service";
 })
 export class TransferenciasComponent implements OnInit {
 
-    private transferencias: Transferencia[];
+    private transferencias;
 
     constructor(private service: TransferenciaService) {
     }
@@ -19,7 +19,7 @@ export class TransferenciasComponent implements OnInit {
     }
 
     getTransferencias(): void {
-        this.service.getTransferenciasEnvolvido()
+        this.service.listar()
             .subscribe(data => {
                 this.transferencias = data;
             });

@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit{
 
   }
   ngOnInit(){
-      this.pegarUsuarioStorage()
+     // this.pegarUsuarioStorage()
   }
 
 
@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit{
     this.router.navigate(['login']);
   }
 
-  pegarUsuarioStorage(){
+ /* pegarUsuarioStorage(){
     this.usuario = this.storage.retrieve("usuario").user;
-  }
+  }*/
 }

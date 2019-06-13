@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {SessionStorageService} from "ngx-webstorage";
+import connect from "../../../conect-api";
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import {SessionStorageService} from "ngx-webstorage";
 })
 export class PessoaService {
     private httpOptions;
-    static Url = "http://localhost:3001/api/v1/pessoas";
+    private Url = connect.host+"pessoas";
 
     constructor(private http: HttpClient, private storage: SessionStorageService) {
 
@@ -18,27 +19,30 @@ export class PessoaService {
 
     getForId(id): Observable<any> {
         this.atualizaheader();
-        return this.http.get(PessoaService.Url + "/" + id, this.httpOptions);
+        return this.http.get(this.Url + "/" + id, this.httpOptions);
     }
 
     save(pessoa): Observable<any> {
         this.atualizaheader();
-        return this.http.post(PessoaService.Url, pessoa, this.httpOptions);
+        return this.http.post(this.Url, pessoa, this.httpOptions);
     }
 
     getAll(): Observable<object> {
         this.atualizaheader();
-        return this.http.get(PessoaService.Url + "/", this.httpOptions);
+        return this.http.get(this.Url + "/", this.httpOptions);
     }
 
     listaSemUsuarioLogado(): Observable<any> {
        this.atualizaheader();
-        return this.http.get(PessoaService.Url + /listausuarios/ + this.storage.retrieve("usuario").user.login.email,this.httpOptions)
+        return this.http.get(this.Url + /listausuarios/ + this.storage.retrieve("usuario").user.login.email,this.httpOptions)
     }
 
     pegarUsuarioLogado(): Observable<any> {
         this.atualizaheader();
-        return this.http.get(PessoaService.Url + "/me", this.httpOptions);
+        debugger
+        console.log()
+        return this.http.get(this.Url + "/me", this.httpOptions);
+
     }
 
     atualizaheader(){

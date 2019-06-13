@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {PessoaService} from "../pessoa/service/pessoa.service";
 import {SessionStorageService} from "ngx-webstorage";
+import connect from "../../conect-api";
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,7 @@ import {SessionStorageService} from "ngx-webstorage";
 
 export class LoginserviceService {
     private httpOptions;
-    static Url = "http://localhost:3001/api/v1/login/token";
+    private  Url = connect.host+"login/token";
 
     constructor(private http: HttpClient, private PessoaService: PessoaService, private storage: SessionStorageService) {
         this.httpOptions = {
@@ -22,7 +23,7 @@ export class LoginserviceService {
     }
 
     logar(email, senha): Observable<any> {
-        return this.http.post(LoginserviceService.Url,
+        return this.http.post(this.Url,
             JSON.stringify({"email": email, "senha": senha}), this.httpOptions);
 
     }
