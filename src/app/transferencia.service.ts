@@ -9,7 +9,7 @@ import connect from "../conect-api"
 @Injectable({providedIn: "root"})
 export class TransferenciaService {
     private httpOptions;
-    private url = connect.host + "transferencias";
+    public url = connect.host + "transferencias";
 
     constructor(private http: HttpClient, private storage: SessionStorageService) {
         let token = this.storage.retrieve('token');
@@ -44,18 +44,18 @@ export class TransferenciaService {
     getTransferenciasFeirtas(){
         this.atualizaheader();
         let id = this.storage.retrieve("usuario").user._id;
-        return this.http.get(TransferenciaService.url +"/remetidas/"+ id, this.httpOptions);
+        return this.http.get(this.url +"/remetidas/"+ id, this.httpOptions);
     }
 
     getTransferenciasRecebidas(){
         this.atualizaheader();
         let id = this.storage.retrieve("usuario").user._id;
-        return this.http.get(TransferenciaService.url+"/recebidas/"+id, this.httpOptions);
+        return this.http.get(this.url+"/recebidas/"+id, this.httpOptions);
     }
 
     getTransferenciasEnvolvido(){
         this.atualizaheader();
         let id = this.storage.retrieve("usuario").user._id;
-        return this.http.get(TransferenciaService.url+"/envolvido/"+id, this.httpOptions);
+        return this.http.get(this.url+"/envolvido/"+id, this.httpOptions);
     }
 }
